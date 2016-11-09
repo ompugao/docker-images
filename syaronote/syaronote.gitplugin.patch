@@ -1,0 +1,26 @@
+diff --git a/gitplugin/git.go b/gitplugin/git.go
+index a5be904..f265500 100644
+--- a/gitplugin/git.go
++++ b/gitplugin/git.go
+@@ -64,7 +64,7 @@ func commitChange(repo *git.Repository, manip func(idx *git.Index) error,
+ 
+ // getLastCommit returns latest commit of current branch
+ func getLastCommit(repo *git.Repository) *git.Commit {
+-	ref, err := repo.LookupReference("HEAD")
++	ref, err := repo.Head()
+ 	if err != nil {
+ 		log.Debug("HEAD not found: %s", err)
+ 		return nil
+diff --git a/gitplugin/main.go b/gitplugin/main.go
+index 388a440..a283d91 100644
+--- a/gitplugin/main.go
++++ b/gitplugin/main.go
+@@ -1,7 +1,7 @@
+ package main
+ 
+ import (
+-	pb "github.com/OUCC/syaro/gitservice"
++	pb "github.com/OUCC/SyaroNote/syaro/gitservice"
+ 
+ 	"google.golang.org/grpc"
+ 

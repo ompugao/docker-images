@@ -1,0 +1,22 @@
+diff --git a/syaro/git.go b/syaro/git.go
+index 1e86a0a..4a384c9 100644
+--- a/syaro/git.go
++++ b/syaro/git.go
+@@ -15,7 +15,7 @@ func gitCommit(commitFunc func(pb.GitClient) (*pb.CommitResponse, error)) error
+ 		return nil
+ 	}
+ 
+-	conn, err := grpc.Dial("127.0.0.1:" + strconv.Itoa(setting.port+1))
++	conn, err := grpc.Dial("127.0.0.1:" + strconv.Itoa(setting.port+1), grpc.WithInsecure())
+ 	if err != nil {
+ 		log.Debug("Dial error: %s", err)
+ 		return err
+@@ -33,7 +33,7 @@ func gitCommit(commitFunc func(pb.GitClient) (*pb.CommitResponse, error)) error
+ }
+ 
+ func getChanges(wpath string) []*pb.Change {
+-	conn, err := grpc.Dial("127.0.0.1:" + strconv.Itoa(setting.port+1))
++	conn, err := grpc.Dial("127.0.0.1:" + strconv.Itoa(setting.port+1), grpc.WithInsecure())
+ 	if err != nil {
+ 		log.Debug("Dial error: %s", err)
+ 		return nil
