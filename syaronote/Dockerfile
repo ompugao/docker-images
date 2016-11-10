@@ -8,7 +8,8 @@ RUN mkdir 3rdparty && cd 3rdparty && git clone --depth 1 --branch v3.0.0 https:/
 
 RUN go get -u github.com/golang/protobuf/proto
 RUN go get -u github.com/golang/protobuf/protoc-gen-go
-RUN go get -d -u github.com/OUCC/SyaroNote/syaro
+RUN go get -u github.com/blevesearch/bleve && cd $GOPATH/src/github.com/blevesearch/bleve/ && git checkout v0.5.0 -b br0.5.0
+RUN go get -d github.com/OUCC/SyaroNote/syaro
 RUN cd $GOPATH/src/github.com/OUCC/SyaroNote/syaro/gitservice && protoc --go_out=plugins=grpc:. git.proto
 ADD syaronote.patch $GOPATH/src/github.com/OUCC/SyaroNote/syaro.patch
 RUN cd $GOPATH/src/github.com/OUCC/SyaroNote && patch -p1 < syaro.patch && go build -ldflags "-X main.version=$(git describe)" -o /usr/bin/syaro github.com/OUCC/SyaroNote/syaro
