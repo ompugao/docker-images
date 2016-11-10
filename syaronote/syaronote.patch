@@ -20,3 +20,101 @@ index 1e86a0a..4a384c9 100644
  	if err != nil {
  		log.Debug("Dial error: %s", err)
  		return nil
+diff --git a/template/404.html b/template/404.html
+index 5698cc1..6fab67b 100644
+--- a/template/404.html
++++ b/template/404.html
+@@ -14,7 +14,7 @@
+   <!-- navigation bar -->
+   {{template "error-navbar.html"}}
+ 
+-  <div class="container error-container">
++  <div class="container-fluid error-container">
+ 
+     <div class="jumbotron">
+ 
+diff --git a/template/500.html b/template/500.html
+index 94d85af..192967d 100644
+--- a/template/500.html
++++ b/template/500.html
+@@ -14,7 +14,7 @@
+   <!-- navigation bar -->
+   {{template "error-navbar.html"}}
+ 
+-  <div class="container error-container">
++  <div class="container-fluid error-container">
+ 
+     <div class="jumbotron">
+ 
+diff --git a/template/501.html b/template/501.html
+index 6cdf594..f0816ee 100644
+--- a/template/501.html
++++ b/template/501.html
+@@ -14,7 +14,7 @@
+   <!-- navigation bar -->
+   {{template "error-navbar.html"}}
+ 
+-  <div class="container error-container">
++  <div class="container-fluid error-container">
+ 
+     <div class="jumbotron">
+ 
+diff --git a/template/error-navbar.html b/template/error-navbar.html
+index 81e5a8a..57a3918 100644
+--- a/template/error-navbar.html
++++ b/template/error-navbar.html
+@@ -1,6 +1,6 @@
+ <!-- navigation bar -->
+ <div class="navbar navbar-default navbar-static-top" role="navigation">
+-  <div class="container">
++  <div class="container-fluid">
+ 
+     <div class="navbar-collapse collapse">
+ 
+diff --git a/template/page-navbar.html b/template/page-navbar.html
+index 35d96a5..ffeefed 100644
+--- a/template/page-navbar.html
++++ b/template/page-navbar.html
+@@ -1,6 +1,6 @@
+ <!-- navigation bar -->
+ <div class="navbar navbar-default navbar-static-top" role="navigation">
+-  <div class="container">
++  <div class="container-fluid">
+ 
+     <!-- breadcrumb list -->
+     <ol class="breadcrumb navbar-nav navbar-left">
+diff --git a/template/page.html b/template/page.html
+index f9176df..2d5055a 100644
+--- a/template/page.html
++++ b/template/page.html
+@@ -22,7 +22,7 @@
+   <!-- navigation bar -->
+   {{template "page-navbar.html" .}}
+ 
+-  <div class="container">
++  <div class="container-fluid">
+ 
+     {{with .Sidebar}}
+     <div class="syaro-left col-md-2 col-sm-3 hidden-xs">
+diff --git a/template/search.html b/template/search.html
+index 9c27347..30743f9 100644
+--- a/template/search.html
++++ b/template/search.html
+@@ -14,7 +14,7 @@
+ 
+   <!-- navigation bar -->
+   <div class="navbar navbar-default navbar-static-top" role="navigation">
+-    <div class="container">
++    <div class="container-fluid">
+ 
+       <div class="navbar-left">
+ 
+@@ -32,7 +32,7 @@
+     </div>
+   </div>
+ 
+-  <div class="container">
++  <div class="container-fluid">
+ 
+     {{with .Sidebar}}
+     <div class="syaro-left col-md-2 col-sm-3 hidden-xs">
