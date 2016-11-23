@@ -129,17 +129,6 @@ index 9c27347..30743f9 100644
  
      {{with .Sidebar}}
      <div class="syaro-left col-md-2 col-sm-3 hidden-xs">
-diff --git a/public/css/markdown.css b/public/css/markdown.css
-index 9430638..6ad525c 100644
---- a/public/css/markdown.css
-+++ b/public/css/markdown.css
-@@ -1,5 +1,5 @@
- .markdown {
--    margin: 0 auto;
-+    margin: 0 0;
-     font-family: sans-serif;
-     font-size: 16px;
-     color: #444444;
 diff --git a/template/css.html b/template/css.html
 index 90650a9..0a58df3 100644
 --- a/template/css.html
