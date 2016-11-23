@@ -12,6 +12,7 @@ RUN go get -u github.com/blevesearch/bleve && cd $GOPATH/src/github.com/blevesea
 RUN go get -d github.com/OUCC/SyaroNote/syaro
 RUN cd $GOPATH/src/github.com/OUCC/SyaroNote/syaro/gitservice && protoc --go_out=plugins=grpc:. git.proto
 ADD syaronote.patch $GOPATH/src/github.com/OUCC/SyaroNote/syaro.patch
+ADD github-markdown.css $GOPATH/src/github.com/OUCC/SyaroNote/public/css/github-markdown.css
 RUN cd $GOPATH/src/github.com/OUCC/SyaroNote && patch -p1 < syaro.patch && go build -ldflags "-X main.version=$(git describe)" -o /usr/bin/syaro github.com/OUCC/SyaroNote/syaro
 
 RUN mkdir -p $GOPATH/src/github.com/OUCC/SyaroNote/build/public/js && cd $GOPATH/src/github.com/OUCC/SyaroNote/editorjs && mkdir build && npm install && npm run deploy
